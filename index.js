@@ -35,6 +35,9 @@ app.use(cors());
 // });
 
 app.post("/msg",  async function (req, res) {
+  let s=document.getElementById('sub');
+  console.log(s);
+  
   const text  = req.body.name;
 console.log(text); 
   const newMSG = new MSGModel({
@@ -70,6 +73,8 @@ app.set('view engine', 'hbs');
 // Routing
 app.get('', (req, res) => {
   res.render("index");
+  let s=document.getElementById('sub');
+  console.log(s);
 })
 
 
