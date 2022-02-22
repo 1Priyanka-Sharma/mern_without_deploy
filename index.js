@@ -24,15 +24,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.post("/api/post",  async function (req, res) {
-  const text  = req.body.name;
-console.log(text); 
-  const newMSG = new MSGModel({
-    text: text.toString(),
-  });
+// app.post("/api/post",  async function (req, res) {
+//   const text  = req.body.name;
+// console.log(text); 
+//   const newMSG = new MSGModel({
+//     text: text.toString(),
+//   });
 
-  await newMSG.save();
-});
+//   await newMSG.save();
+// });
 
 app.post("/mconn",  async function (req, res) {
   const text  = req.body.name;
