@@ -34,6 +34,18 @@ console.log(text);
   await newMSG.save();
 });
 
+app.post("/mconn",  async function (req, res) {
+  const text  = req.body.name;
+console.log(text); 
+  const newMSG = new MSGModel({
+    text: text.toString(),
+  });
+
+  await newMSG.save();
+});
+
+
+
 /*Only-for-react
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
