@@ -17,7 +17,7 @@ mongoose
   .then(() => console.log("database connected"))
   .catch((err) => console.log(err));
 
-const MSGModel = require("./models/msg");
+const MSGModel = require("./public/msg");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -34,7 +34,7 @@ app.use(cors());
 //   await newMSG.save();
 // });
 
-app.post("/mconn",  async function (req, res) {
+app.post("/msg",  async function (req, res) {
   const text  = req.body.name;
 console.log(text); 
   const newMSG = new MSGModel({
@@ -63,8 +63,8 @@ app.get("*", function (_, res) {
 
 
 // public static path-template engine
-// const static_path = path.join(__dirname + '/public');
-// app.use(express.static(static_path));
+const static_path = path.join(__dirname + '/public');
+app.use(express.static(static_path));
 app.set('view engine', 'hbs');
 
 // Routing
